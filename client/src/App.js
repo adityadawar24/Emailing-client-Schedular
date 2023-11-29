@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Redirect,
 } from "react-router-dom";
@@ -32,14 +31,14 @@ function App() {
     <>
       <Router>
         {loggedIn && <SideBar />}
-        <Switch>
+        <Routes>
           <Route path="/signin" component={AuthSignIn} />
           <Route path="/register" component={Register} />
           <Route path="/compose" component={Compose} />
           <Route path="/scheduled" component={SentContainer} />
           <Route exact path="/home" component={Home} />
           <Redirect from="*" to="/signin" />
-        </Switch>
+        </Routes>
       </Router>
     </>
   );
